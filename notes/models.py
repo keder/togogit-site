@@ -1,16 +1,14 @@
 from django.db import models
 
-# Create your models here.
+
+class Repository(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=1000, null=True)
 
 
 class Note(models.Model):
-    text = models.CharField(null=False)
-    repo = models.CharField(null=True)
-    file_path = models.CharField(null=True)
+    text = models.CharField(max_length=1000, null=False)
+    repo = models.CharField(max_length=200, null=True)
+    file_path = models.CharField(max_length=200, null=True)
     line = models.SmallIntegerField(null=True)
     repository = models.ForeignKey(Repository, on_delete=models.CASCADE)
-
-    
-class Repository(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(null=True)
