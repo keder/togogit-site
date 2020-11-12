@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+      <form method="post">
+        {% csrf_token %}
+
+        {{form|crispy}}
+
+      <input class="btn btn-info" type="submit" value="Log in">
+        <a class="btn btn-light" href="{% url 'core:index' %}">Home</a>
+
+    </form>
+{% endblock %}
